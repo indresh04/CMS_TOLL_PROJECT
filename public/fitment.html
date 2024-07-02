@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSRP Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            @apply bg-blue-50;
+        }
+        .loader {
+            @apply hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center;
+        }
+    </style>
+</head>
+<body>
+    <header class="flex justify-between items-center p-4 bg-white shadow">
+        <button class="text-xl font-bold">BOOK-MY-HSRP</button>
+        <div class="flex space-x-4">
+            <a href="/" class="text-blue-600">Track Your Order</a>
+            <a href="/" class="text-blue-600">Reschedule Appointment</a>
+            <a href="/" class="text-blue-600">Cancel Order</a>
+            <a href="/" class="text-blue-600">Check For Home Installation</a>
+            <a href="/" class="text-blue-600">Receipt Validity</a>
+            <a href="/" class="text-blue-600">Contact Us</a>
+        </div>
+    </header>
+    
+    <main class="flex">
+        <aside class="w-1/4 p-4 bg-white shadow">
+            <nav class="space-y-4">
+                <a href="/" class="block text-blue-600 font-bold">Step 1 - Booking Details</a>
+                <a href="/" class="block">Step 2 - Fitment Location</a>
+                <a href="/" class="block">Step 3 - Appointment Slot</a>
+                <a href="/" class="block">Step 4 - Booking Summary</a>
+                <a href="/" class="block">Step 5 - Verify Details & Pay</a>
+                <a href="/" class="block">Step 6 - Download Receipt</a>
+            </nav>
+            <div class="mt-8">
+                <img src="your-image-url" alt="Advertisement">
+            </div>
+        </aside>
+        
+        <section class="w-3/4 p-8">
+            <h2 class="text-2xl font-bold mb-6">Booking Details</h2>
+            <form id="booking-form" class="space-y-4">
+                <div class="flex flex-col">
+                    <label for="state" class="mb-2">State*</label>
+                    <select id="state" class="border p-2 rounded" required>
+                        <option value="">Select Vehicle Registration State</option>
+                        <option value="mp">mp</option>
+                    </select>
+                </div>
+                
+                <div class="flex flex-col">
+                    <label for="reg-number" class="mb-2">Registration Number*</label>
+                    <input type="text" id="reg-number" class="border p-2 rounded" placeholder="Reg. No. Ex:- DL9XXXXXX1" required>
+                </div>
+                
+                <div class="flex flex-col">
+                    <label for="chassis-no" class="mb-2">Chassis No.* (XXXXX12345)</label>
+                    <input type="text" id="chassis-no" class="border p-2 rounded" placeholder="Kindly enter last 5 digits including special characters (eg ~/-/...)" required>
+                </div>
+                
+                <div class="flex flex-col">
+                    <label for="engine-no" class="mb-2">Engine No.* (XXXXX12345)</label>
+                    <input type="text" id="engine-no" class="border p-2 rounded" placeholder="Kindly enter last 5 digits" required>
+                </div>
+                
+                <div class="flex flex-col">
+                    <label for="captcha" class="mb-2">Captcha:</label>
+                    <div class="flex items-center space-x-4">
+                        <div class="p-2 bg-gray-200 rounded">6 6 10 1</div>
+                        <input type="text" id="captcha" class="border p-2 rounded" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Click Here</button>
+            </form>
+        </section>
+    </main>
+    
+    <div id="loader" class="loader">
+        <div class="text-white text-2xl">Loading...</div>
+    </div>
+
+    <script>
+        let timeout;
+
+        function startSessionTimeout() {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                alert('Session expired. Please fill the form again.');
+                document.getElementById('booking-form').reset();
+            }, 300000); // 5 minutes in milliseconds
+        }
+
+        window.onload = startSessionTimeout;
+
+        document.getElementById('booking-form').addEventListener('input', startSessionTimeout);
+
+        document.getElementById('booking-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('loader').classList.remove('hidden');
+            setTimeout(() => {
+                // Simulate form submission delay
+                document.getElementById('loader').classList.add('hidden');
+                window.location.href = 'fitment-location.html'; // Redirect to fitment location
+            }, 2000); // 2 seconds delay for demo purposes
+        });
+    </script>
+</body>
+</html>

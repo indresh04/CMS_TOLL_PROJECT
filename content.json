@@ -1,0 +1,74 @@
+{
+  "logo": {
+    "name": "BOOK-Number plate",
+    "link": "#",
+    "imageUrl": "/assets/img1.png"
+  },
+  "menu": [
+    {
+      "name": "Track Your Order",
+      "link": "/trackyourorderform.html"
+    },
+    {
+      "name": "Reschedule Appointment",
+      "link": "/rescheduleappointment.html"
+    },
+    {
+      "name": "Cancel Order",
+      "link": "/cancelorder.html"
+    },
+    {
+      "name": "Check For Home Installation",
+      "link": "/homeinstallation.html"
+    },
+    {
+      "name": "Receipt Validity",
+      "link": "/receiptvalidity.html"
+    },
+    {
+      "name": "Contact Us",
+      "link": "/contactus.html"
+    },
+    {
+      "name": "Press release",
+      "link": "/press.html"
+    }
+  ],
+  "widgets": [
+    {
+      "name": "Black number plate",
+      "link": "HighSecurityColourSticker",
+      "color": "sky-500"
+    },
+    {
+      "name": "High Security Registration Plate For Electric Vehicle",
+      "link": "HighSecurityElectricVehicle",
+      "color": "blue-600"
+    },
+    {
+      "name": "High Security Registration Plate For Tractor & Trailer",
+      "link": "HighSecurityTractorTrailer",
+      "color": "yellow-300"
+    },
+    {
+      "name": "Only Colour Sticker",
+      "link": "OnlyColourSticker",
+      "color": "blue-600"
+    },
+    {
+      "name": "Heavy Vehicle Number Plate",
+      "link": "HeavyVehicle",
+      "color": "yellow-300"
+    },
+    {
+      "name": "Four Wheeler Number Plate",
+      "link": "FourWheeler",
+      "color": "blue-600"
+    },
+    {
+      "name": "Two Wheeler Number Plate",
+      "link": "TwoWheeler",
+      "color": "yellow-300"
+    }
+  ]
+}

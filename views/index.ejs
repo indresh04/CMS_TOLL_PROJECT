@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HSRP Booking</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    main { flex: 1; }
+    @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-100%); }
+    }
+    .marquee-content { display: flex; animation: marquee 15s linear infinite; }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Header -->
+  <!-- <%- include('partials/header', { logo: content.logo }) %> -->
+
+  <!-- Navbar -->
+  <nav class="bg-white py-4 shadow-inner">
+    <div class="container mx-auto gap-8 flex flex-col md:flex-row md:justify-between items-center">
+      <div class="flex justify-between w-full md:w-auto">
+        <a href="/" class="text-gray-600 font-bold flex items-center">
+          <img src="<%= content.logo.imageUrl %>" alt="Logo" class="h-12 w-12 m-4 rounded-full">
+          <div class="md:hidden flex flex-row">
+            <div class="text-2xl">HSRP PLATE</div>
+          </div>
+        </a>
+        <div class="md:hidden flex items-center">
+          <button id="menu-btn" class="text-gray-700 mr-2 focus:outline-none">
+            <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="nav-menu" class="hidden md:flex flex-col gap-5 md:flex-row md:items-center w-full md:w-auto">
+        <% content.menu.forEach(item => { %>
+          <a href="<%= item.link %>" class="text-gray-600 mb-2 md:mb-0 font-bold "><%= item.name %></a>
+        <% }); %>
+        <a href="index.html" class="text-gray-600 mb-2 md:mb-0 flex items-center">
+          <img src="assets/img3.jpg" alt="Login" class="h-10 w-10 mr-2 rounded-full">
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="hidden md:hidden">
+    <% content.menu.forEach(item => { %>
+      <a href="<%= item.link %>" class="block text-gray-700 hover:text-blue-500 px-4 py-2"><%= item.name %></a>
+    <% }); %>
+  </div>
+
+  <main id="main-content" class="container p-2 mx-auto ">
+    <div class="grid grid-cols-1 mx-auto md:grid-cols gap-6">
+      <div class="col-span-1 md:col-span-2">
+        <div id="widgets-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <% content.widgets.forEach(widget => { %>
+            <div class="bg-<%= widget.color %> p-6 rounded-lg shadow text-center">
+              <p class="font-bold"><%= widget.name %></p>
+              <button class="mt-4 bg-black text-white py-2 px-4 rounded" onclick="window.location.href='bookformone.html?plate=<%= widget.link %>'">Book</button>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="relative bg-blue-900 text-white">
+    <div class="relative overflow-hidden w-full bg-blue-900">
+      <div class="marquee bg-white p-4 py-4">
+        <div class="container mx-auto overflow-hidden">
+          <div class="marquee-content flex justify-around mx-auto sm:min-w-0 min-w-max gap-10">
+            <a href="https://rosmertatech.com/" target="_blank" class="flex items-center">
+              <img src="assets/footerimg1.png" alt="Rosmerta Tech Logo" class="w-auto h-6">
+            </a>
+            <a href="https://sensorise.net/" target="_blank" class="flex items-center">
+              <img src="assets/footerimg2.png" alt="Sensorise Logo" class="w-auto h-6">
+            </a>
+            <a href="https://myraasta.in/" target="_blank" class="flex items-center">
+              <img src="assets/footerimg3.png" alt="My Raasta Logo" class="w-auto h-6">
+            </a>
+            <a href="https://rosmertadigital.com/Login.aspx" target="_blank" class="flex items-center">
+              <img src="assets/footerimg4.png" alt="Rosmerta Digital Logo" class="w-auto h-6">
+            </a>
+            <a href="https://addblue.rosmertaroadsafety.com/" target="_blank" class="flex items-center">
+              <img src="assets/footerimg5.png" alt="Rosblu Logo" class="w-auto h-6">
+            </a>
+            <!-- Duplicate Content for Infinite Scrolling -->
+            <a href="https://rosmertatech.com/" target="_blank" class="flex items-center">
+              <img src="assets/footerimg1.png" alt="Rosmerta Tech Logo" class="w-auto h-6">
+            </a>
+            <a href="https://sensorise.net/" target="_blank" class="flex items-center">
+              <img src="assets/footerimg2.png" alt="Sensorise Logo" class="w-auto h-6">
+            </a>
+            <a href="https://myraasta.in/" target="_blank" class="flex items-center">
+              <img src="assets/footerimg3.png" alt="My Raasta Logo" class="w-auto h-6">
+            </a>
+            <a href="https://rosmertadigital.com/Login.aspx" target="_blank" class="flex items-center">
+              <img src="assets/footerimg4.png" alt="Rosmerta Digital Logo" class="w-auto h-6">
+            </a>
+            <a href="https://addblue.rosmertaroadsafety.com/" target="_blank" class="flex items-center">
+              <img src="assets/footerimg5.png" alt="Rosblu Logo" class="w-auto h-6">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- <footer class="relative bg-blue-900 text-white">
+    <div class="relative overflow-hidden w-full bg-blue-900">
+        <div class="marquee bg-white p-4 py-4">
+            <div class="container mx-auto overflow-hidden">
+                <div class="marquee-content flex justify-around mx-auto sm:min-w-0 min-w-max gap-10">
+                    <a href="https://rosmertatech.com/" target="_blank" class="flex items-center">
+                        <img src="assets/footerimg1.png" alt="Rosmerta Tech Logo" class="w-auto h-6">
+                    </a>
+                    <a href="https://sensorise.net/" target="_blank" class="flex items-center">
+                        <img src="assets/footerimg2.png" alt="Sensorise Logo" class="w-auto h-6">
+                    </a>
+                    <a href="https://myraasta.in/" target="_blank" class="flex items-center">
+                        <img src="assets/footerimg3.png" alt="My Raasta Logo" class="w-auto h-6">
+                    </a>
+                    <a href="https://rosmertadigital.com/Login.aspx" target="_blank" class="flex items-center">
+                        <img src="assets/footerimg4.png" alt="Rosmerta Digital Logo" class="w-auto h-6">
+                    </a>
+                    <a href="https://addblue.rosmertaroadsafety.com/" target="_blank" class="flex items-center">
+                        <img src="assets/footerimg5.png" alt="Rosblu Logo" class="w-auto h-6">
+                    </a>
+                  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </footer> -->
+
+  <%- include('partials/footer') %>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuBtn = document.getElementById('menu-btn');
+      const navMenu = document.getElementById('nav-menu');
+      const closeIcon = document.getElementById('close-icon');
+      const menuIcon = document.getElementById('menu-icon');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      menuBtn.addEventListener('click', () => {
+        // navMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('hidden');
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      });
+    });
+  </script>
+</body>
+</html>

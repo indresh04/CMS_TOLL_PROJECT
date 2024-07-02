@@ -1,0 +1,32 @@
+{
+    "logo": {
+      "name": "BOOK-MY-HSRP",
+      "link": "#",
+      "imageUrl": "/assets/img1.png"
+    },
+    "menu": [
+      { "name": "Track Your Order", "link": "/trackyourorderform.html" },
+      { "name": "Reschedule Appointment", "link": "/rescheduleappointment.html" },
+      { "name": "Cancel Order", "link": "/cancelorder.html" },
+      { "name": "Check For Home Installation", "link": "/homeinstallation.html" },
+      { "name": "Receipt Validity", "link": "/receiptvalidity.html" },
+      { "name": "Contact Us", "link": "/contactus.html" }
+    ],
+    "widgets": [
+      { "name": "High Security Registration Plate with Colour Sticker", "link": "HighSecurityColourSticker", "color": "yellow-300" },
+      { "name": "High Security Registration Plate For Electric Vehicle", "link": "HighSecurityElectricVehicle", "color": "blue-600" },
+      { "name": "High Security Registration Plate For Tractor & Trailer", "link": "HighSecurityTractorTrailer", "color": "yellow-300" },
+      { "name": "Only Colour Sticker", "link": "OnlyColourSticker", "color": "blue-600" },
+      { "name": "Heavy Vehicle Number Plate", "link": "HeavyVehicle", "color": "yellow-300" },
+      { "name": "Four Wheeler Number Plate", "link": "FourWheeler", "color": "blue-600" },
+      { "name": "Two Wheeler Number Plate", "link": "TwoWheeler", "color": "yellow-300" }
+    ],
+    "marquee": [
+      { "name": "Rosmerta Tech", "link": "https://rosmertatech.com/", "imageUrl": "/assets/footerimg1.png" },
+      { "name": "Sensorise", "link": "https://sensorise.net/", "imageUrl": "/assets/footerimg2.png" },
+      { "name": "My Raasta", "link": "https://myraasta.in/", "imageUrl": "/assets/footerimg3.png" },
+      { "name": "Rosmerta Digital", "link": "https://rosmertadigital.com/Login.aspx", "imageUrl": "/assets/footerimg4.png" },
+      { "name": "Rosblu", "link": "https://addblue.rosmertaroadsafety.com/", "imageUrl": "/assets/footerimg5.png" }
+    ]
+  }
+  

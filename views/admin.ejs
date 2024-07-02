@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+  <h1 class="text-2xl font-bold mb-4">Admin Panel</h1>
+
+  <form action="/admin/update" method="post" class="bg-white p-6 rounded-lg shadow-md">
+    <h2 class="text-xl font-bold mb-4">Update Logo</h2>
+    <div class="mb-4">
+      <label for="logoName" class="block text-gray-700">Logo Name</label>
+      <input type="text" id="logoName" name="logo[name]" value="<%= content.logo.name %>" class="w-full p-2 border rounded">
+    </div>
+
+    <div class="mb-4"> 
+      <label for="logoLink" class="block text-gray-700">Logo Link</label>
+      <input type="text" id="logoLink" name="logo[link]" value="<%= content.logo.link %>" class="w-full p-2 border rounded">
+    </div>
+    <div class="mb-4">
+      <label for="logoImage" class="block text-gray-700">Logo Image URL</label>
+      <input type="text" id="logoImage" name="logo[imageUrl]" value="<%= content.logo.imageUrl %>" class="w-full p-2 border rounded">
+    </div>
+
+    <h2 class="text-xl font-bold mb-4">Update Menu</h2>
+    <div id="menu-items">
+      <% content.menu.forEach((item, index) => { %>
+        <div class="mb-4">
+          <label class="block text-gray-700">Menu Item <%= index + 1 %></label>
+          <input type="text" name="menu[<%= index %>][name]" value="<%= item.name %>" class="w-full p-2 border rounded mb-2">
+          <input type="text" name="menu[<%= index %>][link]" value="<%= item.link %>" class="w-full p-2 border rounded">
+        </div>
+      <% }); %>
+    </div>
+
+    <button type="button" id="add-menu-item" class="bg-green-500 text-white py-2 px-4 rounded mb-4">Add Menu Item</button>
+
+    <h2 class="text-xl font-bold mb-4">Update Widgets</h2>
+    <div id="widgets-items">
+      <% content.widgets.forEach((widget, index) => { %>
+        <div class="mb-4">
+          <label class="block text-gray-700">Widget Item <%= index + 1 %></label>
+          <input type="text" name="widgets[<%= index %>][name]" value="<%= widget.name %>" class="w-full p-2 border rounded mb-2">
+          <input type="text" name="widgets[<%= index %>][link]" value="<%= widget.link %>" class="w-full p-2 border rounded mb-2">
+          <input type="text" name="widgets[<%= index %>][color]" value="<%= widget.color %>" class="w-full p-2 border rounded">
+        </div>
+      <% }); %>
+    </div>
+
+    <button type="button" id="add-widget-item" class="bg-green-500 text-white py-2 px-4 rounded mb-4">Add Widget Item</button>
+
+    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">Update</button>
+  </form>
+
+  <script>
+    document.getElementById('add-menu-item').addEventListener('click', function() {
+      const menuItems = document.getElementById('menu-items');
+      const newItemIndex = menuItems.children.length;
+      const newItem = document.createElement('div');
+      newItem.classList.add('mb-4');
+      newItem.innerHTML = `
+        <label class="block text-gray-700">Menu Item ${newItemIndex + 1}</label>
+        <input type="text" name="menu[${newItemIndex}][name]" class="w-full p-2 border rounded mb-2">
+        <input type="text" name="menu[${newItemIndex}][link]" class="w-full p-2 border rounded">
+      `;
+      menuItems.appendChild(newItem);
+    });
+
+    document.getElementById('add-widget-item').addEventListener('click', function() {
+      const widgetsItems = document.getElementById('widgets-items');
+      const newItemIndex = widgetsItems.children.length;
+      const newItem = document.createElement('div');
+      newItem.classList.add('mb-4');
+      newItem.innerHTML = `
+        <label class="block text-gray-700">Widget Item ${newItemIndex + 1}</label>
+        <input type="text" name="widgets[${newItemIndex}][name]" class="w-full p-2 border rounded mb-2">
+        <input type="text" name="widgets[${newItemIndex}][link]" class="w-full p-2 border rounded mb-2">
+        <input type="text" name="widgets[${newItemIndex}][color]" class="w-full p-2 border rounded">
+      `;
+      widgetsItems.appendChild(newItem);
+    });
+  </script>
+</body>
+</html>
